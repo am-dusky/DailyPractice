@@ -1,0 +1,13 @@
+void solve(TreeNode* root,vector<int>&v){
+        if(!root)
+            return;
+        solve(root->left,v);
+        v.push_back(root->val);
+        solve(root->right,v);
+    }
+    int kthSmallest(TreeNode* root, int k) {
+        vector<int>ans;
+        solve(root,ans);
+        
+        return ans[k-1];
+    }
